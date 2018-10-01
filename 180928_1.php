@@ -7,11 +7,26 @@ function duljina($broj){
     return $i;
 }
 
-$dec=4;
-while ($dec>=1){
+$dec=22;
+function dectobin($dec){
     $bin="";
-    $ost=$dec%2;
-    $dec=floor(round($dec/2,0,PHP_ROUND_HALF_DOWN));
-    $bin.=$ost;
-    echo "Bin: $bin, Dec: $dec, Ost= $ost <br>";
+    while ($dec>=1){
+        $ost=$dec%2;
+        $dec=floor(round($dec/2,0,PHP_ROUND_HALF_DOWN));
+        $bin.="$ost";
+    }
+    echo strrev($bin);
 }
+function dectohex($dec){
+    $hex="";
+    while ($dec>=1){
+        $ost=$dec%16;
+        $dec=floor(round($dec/16,0,PHP_ROUND_HALF_DOWN));
+        $hex.="$ost";
+    }
+    echo strrev($hex);
+}
+echo "Decimal: $dec, Binary: ";
+echo dectobin($dec);
+echo ", Hex: ";
+echo dectohex($dec);
